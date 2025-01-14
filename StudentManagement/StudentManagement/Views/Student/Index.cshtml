@@ -1,0 +1,194 @@
+﻿@model IEnumerable<StudentManagement.Models.Students>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      
+        .table-hover tbody tr:hover {
+            background-color: #f0f8ff;
+        }
+
+       
+        .btn-group a {
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-group a:hover {
+                background-color: #ddd;
+            }
+
+        .pagination .page-item.active .page-link {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .pagination .page-link {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .pagination .page-item:hover .page-link {
+            background-color: #e6f7e6;
+            border-color: #28a745;
+        }
+    </style>
+</head>
+
+@{
+    ViewBag.Title = "Index";
+    int counter = 1;
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="mb-4">
+    <h2 class="text-center text-primary">Student Index</h2>
+</div>
+
+
+<div class="card mb-4">
+    <div class="card-body text-center">
+        <p>
+            @Html.ActionLink("Create New Student", "Create", new { @class = "btn btn-success btn-lg" })
+        </p>
+        <p>
+            @Html.ActionLink("View Deleted Data", "Old", new { @class = "btn btn-danger btn-lg" })
+        </p>
+    </div>
+</div>
+
+<table class="table table-striped table-hover" id="studentsTable">
+    <thead>
+        <tr>
+            <th>SRNo.</th>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Department</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone No.</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@counter</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Rollno)</td>
+                <td>@Html.DisplayFor(modelItem => item.deptname)</td>
+                <td>@(DateTime.Now.Subtract(item.DOB).Days / 365)</td>
+                <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                <td>@Html.DisplayFor(modelItem => item.phone)</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-warning btn-sm me-2" title="Edit">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info btn-sm me-2" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm" title="Delete">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            counter++;
+        }
+    </tbody>
+</table>
+
+
+<div class="mt-4">
+    <ul class="pagination justify-content-center">
+        @if (currentPage > 1)
+        {
+            <li class="page-item">
+                @Html.ActionLink("Previous", "Index", new { page = currentPage - 1 }, new { @class = "page-link" })
+            </li>
+        }
+
+        @for (int i = 1; i <= totalPages; i++)
+        {
+            <li class="page-item @(i == currentPage ? "active" : "")">
+                @Html.ActionLink(i.ToString(), "Index", new { page = i }, new { @class = "page-link" })
+            </li>
+        }
+
+        @if (currentPage < totalPages)
+        {
+            <li class="page-item">
+                @Html.ActionLink("Next", "Index", new { page = currentPage + 1 }, new { @class = "page-link" })
+            </li>
+        }
+    </ul>
+</div>
+
+
+<div class="d-flex justify-content-center gap-3 mt-4">
+    <button id="btnPrint" class="btn btn-success btn-lg">
+        <i class="fas fa-print"></i> Print
+    </button>
+    <button id="btnDownloadExcel" class="btn btn-primary btn-lg">
+        <i class="fas fa-download"></i> Download to Excel
+    </button>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+  
+    $("#btnPrint").click(function () {
+        var printWindow = window.open('', '', 'height=400,width=600');
+        printWindow.document.write('<html><head><title>Print</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write('table { width: 100%; border-collapse: collapse; }');
+        printWindow.document.write('th, td { border: 1px solid black; padding: 8px; text-align: left; }');
+        printWindow.document.write('th { background-color: #f2f2f2; }');
+        printWindow.document.write('h2 { text-align: center; }');
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write('<h2>Student List</h2>');
+        printWindow.document.write('<table>' + $('#studentsTable').html() + '</table>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    });
+
+    $("#btnDownloadExcel").click(function () {
+        var table = document.getElementById("studentsTable");
+        var rows = table.rows;
+        var csv = [];
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var cols = row.cells;
+            var rowData = [];
+
+            for (var j = 0; j < cols.length; j++) {
+                rowData.push(cols[j].innerText);
+            }
+
+            csv.push(rowData.join(","));
+        }
+
+        var csvFile = new Blob([csv.join("\n")], { type: 'text/csv' });
+        var downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(csvFile);
+        downloadLink.download = "students.csv";
+        downloadLink.click();
+    });
+</script>

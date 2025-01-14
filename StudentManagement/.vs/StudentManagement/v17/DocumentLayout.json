@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|c:\\users\\owner.bhim\\source\\repos\\studentmanagement\\studentmanagement\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\views\\student\\olddetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\views\\student\\olddetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\views\\student\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\views\\student\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\views\\student\\old.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\views\\student\\old.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\views\\student\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\views\\student\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\views\\student\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\views\\student\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\models\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\models\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\studentmanagement\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{894938EC-02DD-468C-B4BF-8E3D3BF6672B}|StudentManagement\\StudentManagement.csproj|solutionrelative:studentmanagement\\repositories\\studentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Edit.cshtml",
+              "RelativeDocumentMoniker": "StudentManagement\\Views\\Student\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Edit.cshtml",
+              "RelativeToolTip": "StudentManagement\\Views\\Student\\Edit.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAUwFAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T12:27:08.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Create.cshtml",
+              "RelativeDocumentMoniker": "StudentManagement\\Views\\Student\\Create.cshtml",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Create.cshtml",
+              "RelativeToolTip": "StudentManagement\\Views\\Student\\Create.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAADIAAABmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T06:03:14.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OLDDETAILS.cshtml",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\OLDDETAILS.cshtml",
+              "RelativeDocumentMoniker": "StudentManagement\\Views\\Student\\OLDDETAILS.cshtml",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\OLDDETAILS.cshtml",
+              "RelativeToolTip": "StudentManagement\\Views\\Student\\OLDDETAILS.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAE8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T05:46:58.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "old.cshtml",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\old.cshtml",
+              "RelativeDocumentMoniker": "StudentManagement\\Views\\Student\\old.cshtml",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\old.cshtml",
+              "RelativeToolTip": "StudentManagement\\Views\\Student\\old.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T05:46:57.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Details.cshtml",
+              "RelativeDocumentMoniker": "StudentManagement\\Views\\Student\\Details.cshtml",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Details.cshtml",
+              "RelativeToolTip": "StudentManagement\\Views\\Student\\Details.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-13T05:37:05.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StudentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Repositories\\StudentRepository.cs",
+              "RelativeDocumentMoniker": "StudentManagement\\Repositories\\StudentRepository.cs",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Repositories\\StudentRepository.cs",
+              "RelativeToolTip": "StudentManagement\\Repositories\\StudentRepository.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAADkAAADDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T05:05:50.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Students.cs",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Models\\Students.cs",
+              "RelativeDocumentMoniker": "StudentManagement\\Models\\Students.cs",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Models\\Students.cs",
+              "RelativeToolTip": "StudentManagement\\Models\\Students.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T06:03:29.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "StudentManagement\\Controllers\\StudentController.cs",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "StudentManagement\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAAIwAAAAAAAAAAAAAACgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T10:37:05.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Index.cshtml",
+              "RelativeDocumentMoniker": "StudentManagement\\Views\\Student\\Index.cshtml",
+              "ToolTip": "C:\\Users\\owner.BHIM\\source\\repos\\StudentManagement\\StudentManagement\\Views\\Student\\Index.cshtml",
+              "RelativeToolTip": "StudentManagement\\Views\\Student\\Index.cshtml",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T11:07:53.184Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
