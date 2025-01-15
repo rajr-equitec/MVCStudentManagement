@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -27,15 +28,45 @@ namespace StudentManagement.Repositories
 
         }
 
-        public IEnumerable<Students> GetAll()
+        /* public IEnumerable<Students> GetAll()
+         {
+             using (var connection = new SqlConnection(_connectionstring))
+             {
+                 connection.Open();
+                 var employees = connection.Query<Students>("select t.id,t.Name,t.Rollno,d.deptname,t.DOB,t.gender,t.Address,t.phone from temstude t join department d on t.depid=d.depid ORDER BY Rollno ASC;").ToList();
+                 return employees;
+             }
+         }*/
+
+
+        public IEnumerable<Students> GetPaginatedStudents(int page, int pageSize, out int totalCount)
         {
             using (var connection = new SqlConnection(_connectionstring))
             {
                 connection.Open();
-                var employees = connection.Query<Students>("select t.id,t.Name,t.Rollno,d.deptname,t.DOB,t.gender,t.Address,t.phone from temstude t join department d on t.depid=d.depid ORDER BY Rollno ASC;").ToList();
-                return employees;
+                var results = connection.QueryMultiple("GetPaginatedStudents",
+                new { Page = page, PageSize = pageSize },
+                commandType: CommandType.StoredProcedure);
+                var students = results.Read<Students>().ToList();
+                totalCount = results.Read<int>().FirstOrDefault();
+                return students;
             }
         }
+
+
+
+
+
+
+        /* public void insertData(Students sm)
+         {
+             using (var connection = new SqlConnection(_connectionstring))
+             {
+                 connection.Open();
+                 string sql = "insert into  temstude(Name, Rollno, depid, DOB, Gender, Address, phone) values(@Name ,@Rollno,@depid , @DOB,@Gender , @Address,@phone);";
+                 connection.Execute(sql, sm);
+             }
+         }*/
 
 
 
@@ -44,8 +75,19 @@ namespace StudentManagement.Repositories
             using (var connection = new SqlConnection(_connectionstring))
             {
                 connection.Open();
-                string sql = "insert into  temstude(Name, Rollno, depid, DOB, Gender, Address, phone) values(@Name ,@Rollno,@depid , @DOB,@Gender , @Address,@phone);";
-                connection.Execute(sql, sm); 
+
+                //string checkSql = "SELECT COUNT(1) FROM temstude WHERE Rollno = @Rollno";
+                //var count = connection.ExecuteScalar<int>(checkSql, new { Rollno = sm.Rollno });
+
+                //if (count > 0)
+                //{
+                //    throw new Exception("Rollno already exists.");
+
+                //}
+                string sql = "INSERT INTO temstude(Name, Rollno, depid, DOB, Gender, Address, phone) " +
+                            "VALUES(@Name, @Rollno, @depid, @DOB, @Gender, @Address, @phone);";
+                connection.Execute(sql, sm);
+
             }
         }
 
@@ -158,8 +200,8 @@ namespace StudentManagement.Repositories
             }
         }
 
-        
- public void OLDDETAILS(int id)
+
+        public void OLDDETAILS(int id)
         {
             using (var connnection = new SqlConnection(_connectionstring))
             {
@@ -198,15 +240,49 @@ namespace StudentManagement.Repositories
             }
         }
 
+        /*public void Save(Students student)
+        {
+            using (var connection = new SqlConnection(_connectionstring))
+            {
+
+                string query = "UPDATE temstude SET Name = @Name, Rollno = @Rollno,depid=@depid,  DOB = @DOB, Gender = @Gender, Address = @Address, phone = @phone WHERE Id = @id";
+
+                connection.Execute(query, new { Name = student.Name, Rollno = student.Rollno, depid=student.depid, DOB = student.DOB, Gender = student.Gender, Address = student.Address, phone = student.phone, id = student.Id });
+            }
+        }*/
+
+
         public void Save(Students student)
         {
             using (var connection = new SqlConnection(_connectionstring))
             {
 
-                string query = "UPDATE temstude SET Name = @Name, Rollno = @Rollno,  DOB = @DOB, Gender = @Gender, Address = @Address, phone = @phone WHERE Id = @id";
-                connection.Execute(query, new { Name = student.Name, Rollno = student.Rollno, DOB = student.DOB, Gender = student.Gender, Address = student.Address, phone = student.phone , id = student.Id });
+                string checkQuery = "SELECT COUNT(1) FROM temstude WHERE Rollno = @Rollno AND Id != @Id";
+                var count = connection.ExecuteScalar<int>(checkQuery, new { Rollno = student.Rollno, Id = student.Id });
+
+                //if (count > 0)
+                //{
+
+                //    throw new InvalidOperationException("The Roll Number already exists. Please enter a unique Roll Number.");
+                //}
+
+
+                string query = "UPDATE temstude SET Name = @Name, Rollno = @Rollno, depid = @depid, DOB = @DOB, Gender = @Gender, Address = @Address, phone = @phone WHERE Id = @id";
+
+                connection.Execute(query, new
+                {
+                    Name = student.Name,
+                    Rollno = student.Rollno,
+                    depid = student.depid,
+                    DOB = student.DOB,
+                    Gender = student.Gender,
+                    Address = student.Address,
+                    phone = student.phone,
+                    id = student.Id
+                });
             }
         }
+
 
         public void Rollcheck(Students students)
         {
@@ -214,6 +290,25 @@ namespace StudentManagement.Repositories
             {
                 String query = "select Rollno from temstude";
                 var stud = connection.QuerySingleOrDefault<Students>(query);
+            }
+        }
+
+
+        public bool Check(Students students)
+        {
+            using (var c = new SqlConnection(_connectionstring))
+            {
+                c.Open();
+
+
+                string checkSql = "SELECT COUNT(1) FROM temstude WHERE Rollno = @Rollno";
+                int count = c.ExecuteScalar<int>(checkSql, new { students.Rollno });
+
+                if (count > 0)
+                {
+                    return false;
+                }
+                return true;
             }
         }
     }

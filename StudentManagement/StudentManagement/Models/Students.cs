@@ -28,11 +28,11 @@ namespace StudentManagement.Models
         public string deptname { get; set; }
 
         [Required(ErrorMessage = "DOB is required.")]
-       
+
         public DateTime DOB { get; set; }
 
         [Required(ErrorMessage = "Gender is required.")]
-       
+
         public string Gender { get; set; }
 
         [Required(ErrorMessage = "Address is required.")]
@@ -40,13 +40,13 @@ namespace StudentManagement.Models
         public string Address { get; set; }
 
         [Required(ErrorMessage = "Phone number is required.")]
-    
+
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Phone number must be exactly 10 digits.")]
         public long phone { get; set; }
 
         public int depid { get; set; }
 
 
-       
+
     }
 }

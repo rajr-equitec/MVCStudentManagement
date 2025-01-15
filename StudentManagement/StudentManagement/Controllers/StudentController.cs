@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using Dapper;
 using System.Web.Configuration;
 using StudentManagement.Controllers;
+using System.Drawing;
+using System.Net;
 
 
 
@@ -19,20 +21,22 @@ namespace StudentManagement.Controllers
     public class StudentController : Controller
     {
         private readonly StudentRepository _studentRepository = new StudentRepository();
- 
 
-        
+
+
         public StudentController(StudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
-         
+
         }
 
         public StudentController() { }
 
-        public ActionResult Index(int page = 1)
+        /*public ActionResult Index(int page = 1)
         {
             int pageSize = 5;
+            int count = (page - 1) * pageSize + 1;
+            ViewBag.c = count;
             var stu = _studentRepository.GetAll();
             var students = stu.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             int totalCount = stu.Count();
@@ -40,11 +44,30 @@ namespace StudentManagement.Controllers
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = totalPages;
             return View(students);
+        }*/
+
+
+
+        public ActionResult Index(int page = 1)
+        {
+            int pageSize = 5;
+            int count = (page - 1) * pageSize + 1;
+            ViewBag.c = count;
+            int totalCount;
+            var students = _studentRepository.GetPaginatedStudents(page, pageSize, out totalCount);
+            int totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = totalPages;
+
+            return View(students);
         }
+
 
         public ActionResult Old(int page = 1)
         {
             int pageSize = 5;
+            int count = (page - 1) * pageSize + 1;
+            ViewBag.c = count;
             var allStudents = _studentRepository.GetPast();
             var students = allStudents.Skip((page - 1) * pageSize).Take(pageSize).ToList();
             int totalCount = allStudents.Count();
@@ -57,7 +80,7 @@ namespace StudentManagement.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-  
+
             var deleted = _studentRepository.Delete(id);
             TempData["Success"] = "Deleted successfully.";
             if (!deleted)
@@ -65,7 +88,7 @@ namespace StudentManagement.Controllers
                 ViewData["Error"] = "Error.";
                 return HttpNotFound();
             }
-           
+
             return RedirectToAction("Index");
         }
 
@@ -95,10 +118,18 @@ namespace StudentManagement.Controllers
             var stud = _studentRepository.GetById(id);
             return View(stud);
         }
-       
 
-      
-        public ActionResult Create( )
+
+
+
+
+
+
+
+
+
+
+        public ActionResult Create()
         {
 
             try
@@ -123,36 +154,70 @@ namespace StudentManagement.Controllers
 
 
 
+        /* [HttpPost]
+         public ActionResult Create(Students sm)
+         {
+             try
+             {
+                 _studentRepository.insertData(sm);
+
+                 TempData["Success"] = "successfully.";
+                 return RedirectToAction("Index");
+             }
+             catch (Exception ex)
+             {
+                 TempData["Error"] = "error: " + ex.Message;
+                 return View(sm);
+             }
+         }*/
+
+
         [HttpPost]
         public ActionResult Create(Students sm)
         {
-
             try
             {
                 _studentRepository.insertData(sm);
-                
-                TempData["Success"] = "successfully.";
+
+                TempData["Success"] = "Successfully added the student.";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                TempData["Error"] = "error: " + ex.Message;
-                return View(sm);
+                TempData["Error"] = "Error: " + ex.Message;
+                return View();
             }
         }
 
-       [HttpPost]
+
+
+
+
+
+
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Students student)
         {
-           _studentRepository.Save(student);
-             return RedirectToAction("Index");
-  
-        } 
+
+
+            _studentRepository.Save(student);
+            return RedirectToAction("Index");
+
+        }
+
+
         [HttpGet]
         public ActionResult Edit(int id)
         {
-          
+            string con = ConfigurationManager.ConnectionStrings["Student"].ConnectionString;
+            using (var connection = new SqlConnection(con))
+            {
+                string sql = "select * from department";
+                var ex = connection.Query<Students>(sql);
+                ViewBag.dept = ex;
+            }
             var stu = _studentRepository.GetById(id);
             if (stu == null)
             {
@@ -162,7 +227,10 @@ namespace StudentManagement.Controllers
             return View(stu);
         }
 
-     
+
+
+
+
 
     }
 }

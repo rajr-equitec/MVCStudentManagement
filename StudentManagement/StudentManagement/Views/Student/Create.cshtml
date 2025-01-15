@@ -8,6 +8,21 @@
 
 <h2>Create</h2>
 
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 
 @using (Html.BeginForm())
 {
@@ -42,7 +57,6 @@
                 "Select Anyone",
                 new { @class = "form-control" }
                )
-
                 @Html.ValidationMessageFor(model => model.depid, "", new { @class = "text-danger" })
             </div>
         </div>
